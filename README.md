@@ -16,8 +16,6 @@ La base ClassicModels contient plusieurs tables principales :
 clients, employés, bureaux, produits, commandes et paiements.
 Cette structure permet d’analyser l’ensemble du cycle de vente.
 
----
-
 ### Nombre d’enregistrements par table
 L’analyse montre que la base contient :
 - 122 clients
@@ -28,7 +26,6 @@ L’analyse montre que la base contient :
 Le nombre élevé de clients par rapport au nombre d’employés et de bureaux
 suggère une organisation commerciale centralisée avec un portefeuille client étendu.
 
----
 
 ### Répartition géographique des clients
 Les clients sont répartis dans plusieurs pays, avec une forte concentration
@@ -38,7 +35,6 @@ aux États-Unis et en Europe.
 L’activité commerciale est principalement orientée vers les marchés
 nord-américains et européens, qui constituent les zones stratégiques de l’entreprise.
 
----
 
 ### Commandes par statut
 La majorité des commandes possède le statut *Shipped*.
@@ -47,7 +43,6 @@ La majorité des commandes possède le statut *Shipped*.
 Cela indique un processus logistique globalement efficace et un bon taux
 de finalisation des ventes.
 
----
 
 ### Chiffre d’affaires total
 Le chiffre d’affaires total correspond à la somme des ventes réalisées
@@ -56,7 +51,6 @@ sur l’ensemble des commandes.
 **Interprétation :**  
 Cet indicateur permet d’évaluer la performance commerciale globale de l’entreprise.
 
----
 
 ### Panier moyen
 Le panier moyen représente la valeur moyenne d’une commande.
@@ -65,7 +59,6 @@ Le panier moyen représente la valeur moyenne d’une commande.
 Il permet d’analyser le comportement d’achat des clients et le niveau
 de dépense moyen par transaction.
 
----
 
 ### Produits les plus vendus
 Les produits les plus vendus en quantité constituent le cœur des ventes.
@@ -74,7 +67,6 @@ Les produits les plus vendus en quantité constituent le cœur des ventes.
 Ces produits sont stratégiques et doivent être suivis attentivement
 en matière de gestion des stocks.
 
----
 
 ### Meilleurs clients
 Une part importante du chiffre d’affaires est générée par un nombre
@@ -83,7 +75,6 @@ limité de clients.
 **Interprétation :**  
 Ces clients sont stratégiques et doivent être fidélisés.
 
----
 
 ### Performance des employés
 Un employé se distingue par le chiffre d’affaires généré.
@@ -91,7 +82,6 @@ Un employé se distingue par le chiffre d’affaires généré.
 **Interprétation :**  
 Cela permet d’identifier les meilleures performances commerciales.
 
----
 
 ### Gamme de produits la plus rentable
 La gamme **Classic Cars** génère le chiffre d’affaires le plus élevé.
@@ -112,7 +102,6 @@ pour des analyses plus avancées.
 
 Cette partie vise à répondre à des problématiques métier avancées à l’aide de requêtes SQL complexes (fonctions analytiques, CTE récursifs, sous-requêtes corrélées et rapports de type pivot).
 
----
 
 ### 1. Analyse des ventes avec WINDOW FUNCTIONS
 
@@ -128,7 +117,6 @@ La moyenne mobile met en évidence :
 **Intérêt métier :**  
 Cette analyse permet d’anticiper les périodes fortes et faibles pour mieux planifier les stocks et les actions commerciales.
 
----
 
 ### 2. Hiérarchie organisationnelle avec CTE récursif
 
@@ -142,7 +130,6 @@ Reconstituer la hiérarchie des employés à partir des relations manager → su
 **Intérêt métier :**  
 Cette requête facilite l’analyse des responsabilités managériales et peut servir pour l’évaluation de la performance ou la réorganisation interne.
 
----
 
 ### 3. Segmentation des clients VIP
 
@@ -160,7 +147,6 @@ Segmenter les clients en fonction de leur chiffre d’affaires total.
 **Intérêt métier :**  
 Cette segmentation permet de cibler des actions marketing spécifiques pour les clients VIP (fidélisation, offres personnalisées).
 
----
 
 ### 4. Analyse temporelle – nouveaux clients par année
 
@@ -178,7 +164,6 @@ La diminution des nouveaux clients peut indiquer :
 
 Cela souligne l’importance de stratégies d’acquisition ou de réactivation client.
 
----
 
 ### 5. Rapport PIVOT – ventes par gamme de produits et trimestre
 
