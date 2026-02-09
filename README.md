@@ -108,5 +108,102 @@ pour des analyses plus avancées.
 
 -------------------------------------------------
 
-e solide pour
-des analyses prédictives ou stratégiques futures.
+## Partie 2 – Requêtes SQL avancées
+
+Cette partie vise à répondre à des problématiques métier avancées à l’aide de requêtes SQL complexes (fonctions analytiques, CTE récursifs, sous-requêtes corrélées et rapports de type pivot).
+
+---
+
+### 1. Analyse des ventes avec WINDOW FUNCTIONS
+
+**Objectif :**  
+Analyser l’évolution mensuelle du chiffre d’affaires et lisser les variations à l’aide d’une moyenne mobile sur 3 mois.
+
+**Résultat clé :**  
+La moyenne mobile met en évidence :
+- une forte croissance fin 2003 et fin 2004,
+- une saisonnalité marquée avec des pics en fin d’année,
+- une stabilisation progressive du chiffre d’affaires en 2005.
+
+**Intérêt métier :**  
+Cette analyse permet d’anticiper les périodes fortes et faibles pour mieux planifier les stocks et les actions commerciales.
+
+---
+
+### 2. Hiérarchie organisationnelle avec CTE récursif
+
+**Objectif :**  
+Reconstituer la hiérarchie des employés à partir des relations manager → subordonné.
+
+**Résultat clé :**  
+- La structure organisationnelle est clairement hiérarchisée sur plusieurs niveaux.
+- Certains managers supervisent un nombre important d’employés, indiquant des rôles clés dans l’entreprise.
+
+**Intérêt métier :**  
+Cette requête facilite l’analyse des responsabilités managériales et peut servir pour l’évaluation de la performance ou la réorganisation interne.
+
+---
+
+### 3. Segmentation des clients VIP
+
+**Objectif :**  
+Segmenter les clients en fonction de leur chiffre d’affaires total.
+
+**Méthode :**
+- Clients **VIP** : chiffre d’affaires élevé
+- Clients **Standard** : chiffre d’affaires plus modéré
+
+**Résultat clé :**  
+- Une minorité de clients génère une part significative du chiffre d’affaires.
+- La majorité des clients appartient au segment Standard.
+
+**Intérêt métier :**  
+Cette segmentation permet de cibler des actions marketing spécifiques pour les clients VIP (fidélisation, offres personnalisées).
+
+---
+
+### 4. Analyse temporelle – nouveaux clients par année
+
+**Objectif :**  
+Identifier le nombre de nouveaux clients par année, basé sur la date de leur première commande.
+
+**Résultat clé :**
+- Forte acquisition de nouveaux clients en 2003.
+- Baisse notable des nouveaux clients en 2004.
+
+**Interprétation métier :**  
+La diminution des nouveaux clients peut indiquer :
+- un ralentissement de la prospection,
+- ou un marché arrivé à maturité.
+
+Cela souligne l’importance de stratégies d’acquisition ou de réactivation client.
+
+---
+
+### 5. Rapport PIVOT – ventes par gamme de produits et trimestre
+
+**Objectif :**  
+Analyser la répartition des ventes par gamme de produits et par trimestre.
+
+**Résultat clé :**
+- La gamme **Classic Cars** domine largement les ventes sur tous les trimestres.
+- Les ventes sont généralement plus élevées au T4, confirmant une saisonnalité forte.
+- Certaines gammes (Trains, Ships) ont un poids plus faible mais stable.
+
+**Intérêt métier :**  
+Ce rapport aide à :
+- identifier les gammes stratégiques,
+- ajuster les stocks selon les périodes,
+- prioriser les investissements commerciaux.
+
+---
+
+### Conclusion – Partie 2
+
+Les requêtes SQL avancées ont permis d’aller au-delà de l’analyse descriptive en apportant :
+- une vision temporelle,
+- une segmentation client,
+- une analyse organisationnelle,
+- et une compréhension fine des performances par produit.
+
+Ces analyses constituent une base solide pour les visualisations Python et les analyses prédictives des parties suivantes.
