@@ -108,106 +108,102 @@ pour des analyses plus avancées.
 
 -------------------------------------------------
 
-## Partie 2 – Analyse avancée
+## Partie 2 – Requêtes SQL avancées
 
-Cette seconde partie prolonge l’analyse exploratoire (Partie 1) en approfondissant
-la performance commerciale selon le temps, les clients, les produits et les employés.
-
-### 1. Chiffre d’affaires par mois et par année
-
-L’analyse temporelle met en évidence une évolution croissante du chiffre d’affaires
-entre 2003 et 2004, avec un pic marqué en fin d’année (notamment en novembre).
-
-**Interprétation :**  
-L’activité commerciale présente une forte saisonnalité, avec une concentration
-des ventes sur le dernier trimestre. Cela suggère une dépendance aux périodes de fêtes
-et la nécessité d’anticiper les stocks et la logistique sur ces périodes clés.
+Cette partie vise à répondre à des problématiques métier avancées à l’aide de requêtes SQL complexes (fonctions analytiques, CTE récursifs, sous-requêtes corrélées et rapports de type pivot).
 
 ---
 
-### 2. Chiffre d’affaires par année
+### 1. Analyse des ventes avec WINDOW FUNCTIONS
 
-- 2003 : ~3,3 M  
-- 2004 : ~4,5 M  
-- 2005 : ~1,8 M (année incomplète)
+**Objectif :**  
+Analyser l’évolution mensuelle du chiffre d’affaires et lisser les variations à l’aide d’une moyenne mobile sur 3 mois.
 
-**Interprétation :**  
-L’année 2004 représente la meilleure performance commerciale.
-La baisse observée en 2005 s’explique principalement par des données partielles.
-La croissance entre 2003 et 2004 confirme une dynamique commerciale positive.
+**Résultat clé :**  
+La moyenne mobile met en évidence :
+- une forte croissance fin 2003 et fin 2004,
+- une saisonnalité marquée avec des pics en fin d’année,
+- une stabilisation progressive du chiffre d’affaires en 2005.
 
----
-
-### 3. Top 10 des clients les plus rentables
-
-Une part importante du chiffre d’affaires est générée par un nombre limité de clients,
-notamment *Euro+ Shopping Channel* et *Mini Gifts Distributors Ltd.*
-
-**Interprétation :**  
-L’entreprise repose fortement sur quelques clients stratégiques.
-Une politique de fidélisation ciblée est essentielle afin de sécuriser ces revenus.
+**Intérêt métier :**  
+Cette analyse permet d’anticiper les périodes fortes et faibles pour mieux planifier les stocks et les actions commerciales.
 
 ---
 
-### 4. Répartition des commandes par statut
+### 2. Hiérarchie organisationnelle avec CTE récursif
 
-La majorité des commandes sont au statut **Shipped**, avec très peu de commandes
-annulées ou litigieuses.
+**Objectif :**  
+Reconstituer la hiérarchie des employés à partir des relations manager → subordonné.
 
-**Interprétation :**  
-Le processus opérationnel est globalement fiable et maîtrisé.
-Le faible nombre de commandes annulées ou disputées reflète une bonne qualité de service.
+**Résultat clé :**  
+- La structure organisationnelle est clairement hiérarchisée sur plusieurs niveaux.
+- Certains managers supervisent un nombre important d’employés, indiquant des rôles clés dans l’entreprise.
 
----
-
-### 5. Produits les plus vendus (en volume)
-
-Les produits les plus vendus en quantité incluent notamment :
-- *1992 Ferrari 360 Spider red*
-- *1937 Lincoln Berline*
-- *American Airlines: MD-11S*
-
-**Interprétation :**  
-Ces produits constituent des références à fort volume de vente.
-Ils jouent un rôle clé dans la rotation des stocks.
+**Intérêt métier :**  
+Cette requête facilite l’analyse des responsabilités managériales et peut servir pour l’évaluation de la performance ou la réorganisation interne.
 
 ---
 
-### 6. Produits générant le plus de chiffre d’affaires
+### 3. Segmentation des clients VIP
 
-Les produits les plus rentables en valeur ne sont pas nécessairement
-ceux vendus en plus grande quantité.
+**Objectif :**  
+Segmenter les clients en fonction de leur chiffre d’affaires total.
 
-**Interprétation :**  
-Certains produits à forte valeur unitaire contribuent fortement au chiffre d’affaires,
-ce qui souligne l’importance de la stratégie de pricing.
+**Méthode :**
+- Clients **VIP** : chiffre d’affaires élevé
+- Clients **Standard** : chiffre d’affaires plus modéré
 
----
+**Résultat clé :**  
+- Une minorité de clients génère une part significative du chiffre d’affaires.
+- La majorité des clients appartient au segment Standard.
 
-### 7. Performance des employés (chiffre d’affaires)
-
-Des écarts significatifs de performance sont observés entre les commerciaux,
-avec certains employés générant une part importante des ventes.
-
-**Interprétation :**  
-Ces résultats permettent d’identifier les meilleurs commerciaux
-et peuvent servir de base à des politiques de primes ou de formation.
+**Intérêt métier :**  
+Cette segmentation permet de cibler des actions marketing spécifiques pour les clients VIP (fidélisation, offres personnalisées).
 
 ---
 
-### 8. Gamme de produits la plus rentable
+### 4. Analyse temporelle – nouveaux clients par année
 
-La gamme **Classic Cars** génère le chiffre d’affaires le plus élevé.
+**Objectif :**  
+Identifier le nombre de nouveaux clients par année, basé sur la date de leur première commande.
 
-**Interprétation :**  
-Cette gamme constitue le pilier stratégique de l’entreprise.
-Elle doit être priorisée en matière de marketing, d’approvisionnement et d’innovation.
+**Résultat clé :**
+- Forte acquisition de nouveaux clients en 2003.
+- Baisse notable des nouveaux clients en 2004.
+
+**Interprétation métier :**  
+La diminution des nouveaux clients peut indiquer :
+- un ralentissement de la prospection,
+- ou un marché arrivé à maturité.
+
+Cela souligne l’importance de stratégies d’acquisition ou de réactivation client.
 
 ---
 
-## Conclusion générale
+### 5. Rapport PIVOT – ventes par gamme de produits et trimestre
 
-L’analyse avancée confirme les enseignements de la partie exploratoire :
-l’activité repose sur une forte saisonnalité, des clients clés et une gamme
-de produits dominante. Ces résultats constituent une base solide pour
-des analyses prédictives ou stratégiques futures.
+**Objectif :**  
+Analyser la répartition des ventes par gamme de produits et par trimestre.
+
+**Résultat clé :**
+- La gamme **Classic Cars** domine largement les ventes sur tous les trimestres.
+- Les ventes sont généralement plus élevées au T4, confirmant une saisonnalité forte.
+- Certaines gammes (Trains, Ships) ont un poids plus faible mais stable.
+
+**Intérêt métier :**  
+Ce rapport aide à :
+- identifier les gammes stratégiques,
+- ajuster les stocks selon les périodes,
+- prioriser les investissements commerciaux.
+
+---
+
+### Conclusion – Partie 2
+
+Les requêtes SQL avancées ont permis d’aller au-delà de l’analyse descriptive en apportant :
+- une vision temporelle,
+- une segmentation client,
+- une analyse organisationnelle,
+- et une compréhension fine des performances par produit.
+
+Ces analyses constituent une base solide pour les visualisations Python et les analyses prédictives des parties suivantes.
