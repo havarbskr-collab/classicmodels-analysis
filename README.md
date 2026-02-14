@@ -192,3 +192,113 @@ Les requêtes SQL avancées ont permis d’aller au-delà de l’analyse descrip
 - et une compréhension fine des performances par produit.
 
 Ces analyses constituent une base solide pour les visualisations Python et les analyses prédictives des parties suivantes.
+
+-------------------------------------------------
+
+### Partie 3 - Visualisation python
+
+Cette partie exploite la base *classicmodels* via des requêtes SQL exécutées en Python (pandas), puis visualisées avec matplotlib / seaborn.
+
+---
+
+### Évolution mensuelle du chiffre d’affaires
+
+**Objectif :** analyser la dynamique des ventes dans le temps.
+
+Résultats observés :
+
+- Le chiffre d’affaires varie entre **~100 000 et ~1 000 000**.
+- Deux pics majeurs apparaissent :
+  - Fin 2003 (~1 000 000)
+  - Fin 2004 (~1 000 000)
+- Les périodes creuses tournent autour de **200 000 – 300 000**.
+- On observe une saisonnalité avec de fortes hausses en fin d’année.
+
+L’activité commerciale est cyclique avec des pics importants en fin d’année.
+
+---
+
+### Répartition du chiffre d’affaires par pays
+
+**Objectif :** identifier les marchés les plus rentables.
+
+Résultats observés :
+
+- USA : ~3 200 000 (marché dominant)
+- Espagne : ~1 100 000
+- France : ~1 000 000
+- Australie : ~600 000
+- Les autres pays sont en dessous de 500 000
+
+Le marché américain représente à lui seul une part très significative du chiffre d’affaires.
+
+---
+
+### Ventes par gamme de produits
+
+**Objectif :** identifier les catégories les plus performantes.
+
+Résultats observés :
+
+- Classic Cars : ~3 900 000
+- Vintage Cars : ~1 800 000
+- Motorcycles : ~1 100 000
+- Trucks and Buses : ~1 000 000
+- Trains : catégorie la moins performante
+
+Les Classic Cars dominent largement les ventes.
+
+---
+
+### Top 10 des produits les plus vendus
+
+**Objectif :** identifier les produits les plus populaires.
+
+Produit le plus vendu :
+
+- 1992 Ferrari 360 Spider red (~1 800 unités)
+
+Autres produits performants :
+
+- 1937 Lincoln Berline
+- American Airlines MD-11S
+- 1941 Chevrolet Special Deluxe Cabriolet
+- 1930 Buick Marquette Phaeton
+
+Les véhicules de collection dominent le classement.
+
+---
+
+### Analyse de l’état des stocks
+
+**Objectif :** identifier les produits en rupture ou en stock faible.
+
+Résultats :
+
+- Stock suffisant : ~104 produits
+- Stock faible : ~5 produits
+- Aucune rupture détectée
+
+Exemples de produits en stock faible :
+
+- 1960 BSA Gold Star DBD34 (15 unités)
+- 1968 Ford Mustang (68 unités)
+- 1928 Ford Phaeton Deluxe (136 unités)
+
+Globalement, la gestion des stocks est saine, mais certains produits nécessitent un réapprovisionnement rapide.
+
+---
+
+### Top 10 clients (chiffre d’affaires)
+
+**Objectif :** identifier les clients les plus rentables.
+
+Résultats :
+
+- Euro+ Shopping Channel : ~800 000
+- Mini Gifts Distributors Ltd. : ~600 000
+- Australian Collectors Co. : ~200 000
+- Les autres clients sont entre 100 000 et 200 000
+
+Les 2 premiers clients représentent une part très importante du chiffre d’affaires total.
+
